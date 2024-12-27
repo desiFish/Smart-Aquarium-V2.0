@@ -1,58 +1,109 @@
 # Aquarium Automation using NodeMCU 12E
 
-FOR ANY KIND OF QUESTIONS OR QUERIES PLEASE CONTACT ME HERE: https://thingsbypatra.pythonanywhere.com/contact
+An automated aquarium control system that manages lights, filters, skimmers, and power heads with WiFi control, timers, and visual feedback.
 
-Also, this code needs some optimisations (I believe that) so, if you have updated something and it works better then please let me know.
+## Features
 
-Using NodeMCU for aquarium lights, filter, skimmer, power head/wavemaker control with OTA updates, timers, auto time update, visual feedbacks and WiFi signal level icons.
+- Control 4 different aquarium components independently
+- WiFi-enabled remote control via web interface
+- Automatic timers with customizable schedules
+- Real-time clock with auto time sync
+- OLED display showing status and temperature
+- OTA (Over The Air) firmware updates
+- Power saver modes for equipment
+- Visual feedback with WiFi signal strength indicators
 
-Disclaimer: I take absolutely no responsibility for the use of this code. Use it with your own risk.
+## Hardware Requirements
 
-##It works as "switches" which turns something on or off automatically (by time). This can be applied to varied of things and can be expanded as automatic dosers, automatic water changes, etc (limited by your imagination).
+### Main Components
 
-For DS3231 Library use https://github.com/NorthernWidget/DS3231/releases
+- NodeMCU-ESP8266 Development Board ESP12E
+- 4 Channel 5V Relay Board Module with Optocouplers
+- DS3231 AT24C32 IIC Precision RTC
+- 1.3 Inch I2C IIC 128x64 OLED Display Module (White)
+- Appropriate power supplies for NodeMCU and relays
 
-Rest of the libraries can be downloaded within Arduino IDE Libraries Manager, and some of them are already included (within Arduino). Please google for "how-to" if you cannot figure it .
+### Pin Configuration
 
-Please add http://arduino.esp8266.com/stable/package_esp8266com_index.json in File --> Preferences --> Additional Boards Manager URLs to get support for all ESP Boards.
+#### I2C Devices (DS3231 and OLED)
+| NodeMCU | Device |
+|---------|--------|
+| D1      | SCL    |
+| D2      | SDA    |
+| 3.3V    | VCC    |
+| GND     | GND    |
 
-Pin Configuration:
+*Note: Both I2C devices share the same pins*
 
-DS3231 and 128x64 OLED using I2C and are connected to
+#### 4 Channel Relay Board
+| NodeMCU | Relay |
+|---------|-------|
+| D3      | In1   |
+| D5      | In2   |
+| D6      | In3   |
+| D7      | In4   |
 
-NodeMCU --> Device <br/>
-D1 --> SCL <br/>
-D2 --> SDA <br/>
-3.3 --> VCC <br/>
-G --> GND <br/>
+## Installation
 
-Yes, connect both the I2C devices to the same pin (purpose of I2C). If you are facing I2C device address related issues then please Google it. It is very common and very easy to fix. You just need to adjust one or two resistor value.
+1. Add ESP8266 board support:
+   - In Arduino IDE: File → Preferences → Additional Boards Manager URLs
+   - Add: `http://arduino.esp8266.com/stable/package_esp8266com_index.json`
 
-For the 4 Channel relay board
+2. Install Required Libraries:
+   - DS3231 (from https://github.com/NorthernWidget/DS3231/releases)
+   - Other libraries via Arduino IDE Library Manager:
+     - Adafruit GFX
+     - Adafruit SSD1306
+     - ESP8266WiFi
+     - NTPClient
 
-NodeMCU --> Device <br/>
-D3 --> In1 <br/>
-D5 --> In2 <br/>
-D6 --> In3 <br/>
-D7 --> In4 <br/>
+3. Configure WiFi:
+   - Open `aqua_NODEMCU.ino`
+   - Update `STASSID` and `STAPSK` with your WiFi credentials
 
-For GND and VCC, use appropriate separate power supply (don't take power from NodeMCU, may burn). If you are using separate powersupplies for NodeMCU and Relay, then make sure to connect both the GNDs of Node and Powersupply together, else the relay module won't work. If confused, take help from google or contact me.
+## Important Notes
 
-## MAIN Parts: <br/>
-<img src="https://m.media-amazon.com/images/I/71TWos73PrL._SL1100_.jpg" alt="Relay Board" width="200" height="200"> <br/>
-4 Channel 5V Relay Board Module with Optocouplers <br/><br/>
+- **Power Supply**: Use separate power supplies for NodeMCU and relay board
+  - Do not power relays from NodeMCU
+  - Connect GND of both power supplies if using separate supplies
 
-<img src="https://m.media-amazon.com/images/I/41RP9FjC+jL.jpg" alt="DS3231" width="200" height="200"> <br/>
-DS3231 AT24C32 IIC Precision RTC <br/><br/>
+- **I2C Troubleshooting**: If experiencing I2C address conflicts:
+  - Check device addresses
+  - Adjust pull-up resistor values
+  - Ensure proper power supply to I2C devices
 
-<img src="https://m.media-amazon.com/images/I/51lIrI5vnQL.jpg" alt="NodeMCU" width="200" height="200"> <br/>
-NodeMCU-ESP8266 Development Board ESP12E <br/><br/>
+## Web Interface
 
-<img src="https://www.electronicscomp.com/image/cache/catalog/13-inch-i2c-iic-oled-display-module-4pin-white-800x800.jpg" alt="OLED" width="200" height="200"> <br/>
-1.3 Inch I2C IIC 128x64 OLED Display Module 4 Pin - White <br/><br/>
+Access the control panel by navigating to the NodeMCU's IP address in a web browser.
+Features:
+- Manual/Auto mode switching
+- Timer controls
+- Power saver modes
+- Temperature monitoring
+- Time synchronization
 
-Other parts as required
+## Support
 
-WEB SERVER
+For questions or issues, please contact through:
+https://iotthings.pythonanywhere.com/contact
 
-<img src="https://github.com/aniket-patra/aqua_NODEMCU/blob/main/aa.jpg" alt="OLED" width="800" height="400"> <br/>
+## Disclaimer
+
+This code is provided as-is without any warranty. Use at your own risk.
+
+## Images
+
+### Relay Board
+<img src="https://m.media-amazon.com/images/I/71TWos73PrL._SL1100_.jpg" alt="Relay Board" width="200" height="200">
+
+### DS3231 RTC
+<img src="https://m.media-amazon.com/images/I/41RP9FjC+jL.jpg" alt="DS3231" width="200" height="200">
+
+### NodeMCU
+<img src="https://m.media-amazon.com/images/I/51lIrI5vnQL.jpg" alt="NodeMCU" width="200" height="200">
+
+### OLED Display
+<img src="https://www.electronicscomp.com/image/cache/catalog/13-inch-i2c-iic-oled-display-module-4pin-white-800x800.jpg" alt="OLED" width="200" height="200">
+
+### Web Interface
+<img src="https://github.com/aniket-patra/aqua_NODEMCU/blob/main/aa.jpg" alt="Web Interface" width="800" height="400">
