@@ -10,6 +10,10 @@
 <p>Control your aquarium from anywhere using a web interface!</p>
 </div>
 
+> ⚠️ **CAUTION**: This project involves working with electrical components and may require handling of high voltage connections. Always prioritize safety, use proper insulation, and consult with a qualified electrician if you're unsure about any aspect of the installation or operation.
+
+> 📢 **NOTE**: This project (V2.0) is now closed. For the latest updates and improvements, please check out [Smart Aquarium V3.0](https://github.com/desiFish/Smart-Aquarium-V3.0).
+
 ## ✨ Features
 
 - 🌐 Web-based control interface 
