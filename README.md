@@ -1,8 +1,6 @@
 # 🌊 Smart Aquarium V2.0 
 
 <div align="center">
-
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/desifish/Smart-Aquarium-V2.0?style=for-the-badge&color=blue)
 ![GitHub last commit](https://img.shields.io/github/last-commit/desifish/Smart-Aquarium-V2.0?style=for-the-badge&color=green)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg?style=for-the-badge)](https://www.gnu.org/licenses/gpl-3.0)
 ![Project Status: Closed](https://img.shields.io/badge/Project%20Status-Closed-red?style=for-the-badge)
@@ -147,4 +145,4 @@ Limitations:
 
 ---
 
-<div align="center">Made with ❤️ for the IoT Community[![Follow on GitHub](https://img.shields.io/github/followers/desifish?style=social)](https://github.com/desifish)</div>
+<div align="center">Made with ❤️ for the IoT Community [Follow on GitHub](https://img.shields.io/github/followers/desifish?style=social)</div>
