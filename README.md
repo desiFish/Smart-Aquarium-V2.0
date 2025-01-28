@@ -1,109 +1,150 @@
-# Aquarium Automation using NodeMCU 12E
+# 🌊 Smart Aquarium V2.0 
 
-An automated aquarium control system that manages lights, filters, skimmers, and power heads with WiFi control, timers, and visual feedback.
+<div align="center">
 
-## Features
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/desifish/Smart-Aquarium-V2.0?style=for-the-badge&color=blue)
+![GitHub last commit](https://img.shields.io/github/last-commit/desifish/Smart-Aquarium-V2.0?style=for-the-badge&color=green)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg?style=for-the-badge)](https://www.gnu.org/licenses/gpl-3.0)
+![Project Status: Closed](https://img.shields.io/badge/Project%20Status-Closed-red?style=for-the-badge)
 
-- Control 4 different aquarium components independently
-- WiFi-enabled remote control via web interface
-- Automatic timers with customizable schedules
-- Real-time clock with auto time sync
-- OLED display showing status and temperature
-- OTA (Over The Air) firmware updates
-- Power saver modes for equipment
-- Visual feedback with WiFi signal strength indicators
+<h3>🎛️ IoT-Based Aquarium Automation System</h3>
+<p>Control your aquarium from anywhere using a web interface!</p>
+</div>
 
-## Hardware Requirements
+## ✨ Features
 
-### Main Components
+- 🌐 Web-based control interface 
+- ⏰ Automated timing controls
+- 🌡️ Real-time temperature monitoring
+- 💡 Smart lighting control
+- 🔄 Power-saving modes
+- 📱 Mobile-responsive design
+- 🔄 OTA (Over-The-Air) updates
+- ⚡ Low latency control
 
-- NodeMCU-ESP8266 Development Board ESP12E
-- 4 Channel 5V Relay Board Module with Optocouplers
-- DS3231 AT24C32 IIC Precision RTC
-- 1.3 Inch I2C IIC 128x64 OLED Display Module (White)
-- Appropriate power supplies for NodeMCU and relays
+## 🛠️ Hardware Required
 
-### Pin Configuration
+<table align="center">
+<tr>
+<th>Component</th>
+<th>Image</th>
+<th>Purpose</th>
+</tr>
+<tr>
+<td>NodeMCU ESP8266</td>
+<td><img src="https://m.media-amazon.com/images/I/51lIrI5vnQL.jpg" width="100"></td>
+<td>Main controller with WiFi capabilities</td>
+</tr>
+<tr>
+<td>DS3231 RTC Module</td>
+<td><img src="https://m.media-amazon.com/images/I/41RP9FjC+jL.jpg" width="100"></td>
+<td>Accurate time keeping</td>
+</tr>
+<tr>
+<td>OLED Display</td>
+<td><img src="https://www.electronicscomp.com/image/cache/catalog/13-inch-i2c-iic-oled-display-module-4pin-white-800x800.jpg" width="100"></td>
+<td>Status display</td>
+</tr>
+<tr>
+<td>4-Channel Relay</td>
+<td><img src="https://m.media-amazon.com/images/I/71TWos73PrL._SL1100_.jpg" width="100"></td>
+<td>Control aquarium equipment</td>
+</tr>
+</table>
 
-#### I2C Devices (DS3231 and OLED)
-| NodeMCU | Device |
-|---------|--------|
-| D1      | SCL    |
-| D2      | SDA    |
-| 3.3V    | VCC    |
-| GND     | GND    |
+## 📥 Installation
 
-*Note: Both I2C devices share the same pins*
+```bash
+# Clone this repository
+git clone https://github.com/desifish/Smart-Aquarium-V2.0.git
 
-#### 4 Channel Relay Board
-| NodeMCU | Relay |
-|---------|-------|
-| D3      | In1   |
-| D5      | In2   |
-| D6      | In3   |
-| D7      | In4   |
+# Navigate to the directory
+cd Smart-Aquarium-V2.0
 
-## Installation
+# Open in Arduino IDE
+# Update WiFi credentials in aqua_NODEMCU.ino
+# Flash to NodeMCU
+```
 
-1. Add ESP8266 board support:
-   - In Arduino IDE: File → Preferences → Additional Boards Manager URLs
-   - Add: `http://arduino.esp8266.com/stable/package_esp8266com_index.json`
+## 📝 Documentation
 
-2. Install Required Libraries:
-   - DS3231 (from https://github.com/NorthernWidget/DS3231/releases)
-   - Other libraries via Arduino IDE Library Manager:
-     - Adafruit GFX
-     - Adafruit SSD1306
-     - ESP8266WiFi
-     - NTPClient
+<details>
+<summary>📌 Version History</summary>
 
-3. Configure WiFi:
-   - Open `aqua_NODEMCU.ino`
-   - Update `STASSID` and `STAPSK` with your WiFi credentials
+- v1.12 - Added Power Saver Mode
+- v1.11 - Updated UI with customizable timers
+- v1.10 - Added auto-start relay feature
+- v1.9 - Added web-based time updates
+- v1.8 - Added Auto/Manual Control
+</details>
 
-## Important Notes
+<details>
+<summary>🔌 Wiring Diagram</summary>
 
-- **Power Supply**: Use separate power supplies for NodeMCU and relay board
-  - Do not power relays from NodeMCU
-  - Connect GND of both power supplies if using separate supplies
+```
+NodeMCU ESP8266 -> OLED Display
+D1 -> SCL
+D2 -> SDA
+3.3V -> VCC
+GND -> GND
 
-- **I2C Troubleshooting**: If experiencing I2C address conflicts:
-  - Check device addresses
-  - Adjust pull-up resistor values
-  - Ensure proper power supply to I2C devices
+NodeMCU ESP8266 -> DS3231
+D1 -> SCL
+D2 -> SDA
+3.3V -> VCC
+GND -> GND
 
-## Web Interface
+NodeMCU ESP8266 -> 4 Channel Relay
+D0 -> IN1
+D6 -> IN2
+D7 -> IN3
+D5 -> IN4
+5V -> VCC
+GND -> GND
+```
 
-Access the control panel by navigating to the NodeMCU's IP address in a web browser.
-Features:
-- Manual/Auto mode switching
-- Timer controls
-- Power saver modes
-- Temperature monitoring
-- Time synchronization
+</details>
 
-## Support
+## 📱 Web Interface
 
-For questions or issues, please contact through:
-https://iotthings.pythonanywhere.com/contact
+The system provides an intuitive web interface accessible from any device on your network:
 
-## Disclaimer
-
-This code is provided as-is without any warranty. Use at your own risk.
-
-## Images
-
-### Relay Board
-<img src="https://m.media-amazon.com/images/I/71TWos73PrL._SL1100_.jpg" alt="Relay Board" width="200" height="200">
-
-### DS3231 RTC
-<img src="https://m.media-amazon.com/images/I/41RP9FjC+jL.jpg" alt="DS3231" width="200" height="200">
-
-### NodeMCU
-<img src="https://m.media-amazon.com/images/I/51lIrI5vnQL.jpg" alt="NodeMCU" width="200" height="200">
-
-### OLED Display
-<img src="https://www.electronicscomp.com/image/cache/catalog/13-inch-i2c-iic-oled-display-module-4pin-white-800x800.jpg" alt="OLED" width="200" height="200">
+- 💻 Desktop View
+- 📱 Mobile-Responsive
+- 🎛️ Real-time Controls
+- 📊 Status Monitoring
 
 ### Web Interface
 <img src="https://github.com/aniket-patra/aqua_NODEMCU/blob/main/aa.jpg" alt="Web Interface" width="800" height="400">
+
+## 🔒 License
+
+This project is licensed under GPL-3.0 License - see the [LICENSE](LICENSE) file for details.
+
+### GNU General Public License v3.0
+
+<details>
+<summary>License Details</summary>
+
+Permissions:
+- ✅ Commercial use
+- ✅ Modification
+- ✅ Distribution
+- ✅ Patent use
+- ✅ Private use
+
+Conditions:
+- 📝 License and copyright notice
+- 📄 State changes
+- 📦 Disclose source
+- 📜 Same license
+
+Limitations:
+- ❌ Liability
+- ❌ Warranty
+
+</details>
+
+---
+
+<div align="center">Made with ❤️ for the IoT Community[![Follow on GitHub](https://img.shields.io/github/followers/desifish?style=social)](https://github.com/desifish)</div>
