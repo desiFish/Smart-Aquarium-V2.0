@@ -69,6 +69,8 @@ cd Smart-Aquarium-V2.0
 # Flash to NodeMCU
 ```
 
+> **Important**: The favicon image inside the `data` folder needs to be copied into the flash storage of the NodeMCU. This ensures the web interface can properly display the favicon. For instructions on how to upload files to the ESP8266 filesystem using LittleFS, please refer to [this updated guide](https://randomnerdtutorials.com/install-esp8266-nodemcu-littlefs-arduino/).
+
 ## 📝 Documentation
 
 <details>
@@ -118,7 +120,7 @@ The system provides an intuitive web interface accessible from any device on you
 - 📊 Status Monitoring
 
 ### Web Interface
-<img src="https://github.com/aniket-patra/aqua_NODEMCU/blob/main/aa.jpg" alt="Web Interface" width="800" height="400">
+<img src="https://github.com/aniket-patra/aqua_NODEMCU/blob/main/resources/aa.jpg" alt="Web Interface" width="800" height="400">
 
 ## 🔒 License
 
