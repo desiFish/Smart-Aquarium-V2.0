@@ -159,4 +159,3 @@ Made with ❤️ for the IoT Community
 [![Follow on GitHub](https://img.shields.io/github/followers/desifish?style=social)](https://github.com/desifish)
 
 </div>
-```
