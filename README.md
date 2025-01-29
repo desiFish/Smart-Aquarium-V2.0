@@ -1,4 +1,4 @@
-# 🌊 Smart Aquarium V2.0 
+<h1 align="center">🌊 Smart Aquarium V2.0 🐠</h1>
 
 <div align="center">
 
@@ -7,7 +7,7 @@
 ![Project Status: Closed](https://img.shields.io/badge/Project%20Status-Closed-red?style=for-the-badge)
 
 <h3>🎛️ IoT-Based Aquarium Automation System</h3>
-<p>Control your aquarium from anywhere using a web interface!</p>
+<p>Control your aquarium using a web interface!</p>
 </div>
 
 > ⚠️ **CAUTION**: This project involves working with electrical components and may require handling of high voltage connections. Always prioritize safety, use proper insulation, and consult with a qualified electrician if you're unsure about any aspect of the installation or operation.
@@ -159,3 +159,4 @@ Made with ❤️ for the IoT Community
 [![Follow on GitHub](https://img.shields.io/github/followers/desifish?style=social)](https://github.com/desifish)
 
 </div>
+```
