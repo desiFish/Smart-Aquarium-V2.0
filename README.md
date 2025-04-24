@@ -100,12 +100,38 @@ D2 -> SDA
 GND -> GND
 
 NodeMCU ESP8266 -> 4 Channel Relay
-D0 -> IN1
-D6 -> IN2
-D7 -> IN3
-D5 -> IN4
+D3 -> IN1
+D5 -> IN2
+D6 -> IN3
+D7 -> IN4
 5V -> VCC
 GND -> GND
+```
+
+</details>
+
+## 🔌 Schematics
+
+The full schematics for this project are available in PDF format:
+[View/Download Schematics](https://github.com/chikne97/Smart-Aquarium-V3.0/blob/main/resources/desiFish_smartAquariumV3Schematics.pdf)
+
+<details>
+<summary>Quick Reference</summary>
+
+```
+Note: For detailed connections and component values, please refer to the PDF schematics.
+
+Key Components:
+- NodeMCU ESP8266 (Main Controller)
+- DS3231 RTC Module
+- OLED Display (128x64 I2C)
+- 4-Channel Relay Module
+- Power Supply (5V)
+
+Safety Features:
+- Isolation between mains and low voltage
+- Proper grounding connections
+- Fuse protection
 ```
 
 </details>
